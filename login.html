@@ -144,11 +144,11 @@
                 let action = $('#frmRegistro').data('action'),
                     name = $('#frmRegistro #name').val(),
                     dui = $('#frmRegistro #dui').val(),
-                    tel = $('#frmRegistro #tel').val(),
-                    email = $('#frmRegistro #email').val(),
+                    telefono = $('#frmRegistro #tel').val(),
+                    correo = $('#frmRegistro #email').val(),
                     password = $('#frmRegistro #password').val(),
                     foto = $('#frmRegistro #foto')[0].files[0].name,
-                    data = {action, name, dui, tel, email, password, foto};
+                    data = {action, name, dui, telefono, correo, password, foto};
 
                 $.post('http://localhost:3000/administrar_usuarios', JSON.stringify(data), (res, estatus) => {
                     res = JSON.parse(res);

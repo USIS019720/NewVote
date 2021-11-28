@@ -84,7 +84,7 @@
                         $("#mensaje")
                             .removeClass("alert-danger")
                             .addClass("alert-success");
-                            mostrarUsuarios();
+                        mostrarUsuarios();
                     } else {
                         $("#mensaje")
                             .removeClass("alert-success")
@@ -100,5 +100,15 @@
     
     $(document).ready(function(){
         mostrarUsuarios();
+
+        $("#txtBuscarUsuario").keyup(function(e){
+            let valor = $(this).val(),
+                $tblUsuarios = $("#tblUsuarios tbody tr");
+            $tblUsuarios.show();
+            let $fila = $tblUsuarios.filter(function(index){
+                return $(this).find("td:not(:last)").text().toLowerCase().indexOf(valor.toLowerCase())==-1;
+            });
+            $fila.hide();
+        });
     });
 </script>

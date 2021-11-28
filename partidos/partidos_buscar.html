@@ -76,7 +76,7 @@
                             $("#mensaje")
                                 .removeClass("alert-danger")
                                 .addClass("alert-success");
-                                mostrarCandidatos();
+                                mostrarPartidos();
                         } else {
                             $("#mensaje")
                                 .removeClass("alert-success")
@@ -91,5 +91,15 @@
         }
         $(document).ready(function(){
             mostrarPartidos();
+
+            $("#txtBuscarPartido").keyup(function(e){
+            let valor = $(this).val(),
+                $tblPartidos = $("#tblPartidos tbody tr");
+            $tblPartidos.show();
+            let $fila = $tblPartidos.filter(function(index){
+                return $(this).find("td:not(:last)").text().toLowerCase().indexOf(valor.toLowerCase())==-1;
+            });
+            $fila.hide();
+        });
         });
 </script>

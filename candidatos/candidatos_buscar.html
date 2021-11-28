@@ -101,11 +101,14 @@
     $(document).ready(function(){
         mostrarCandidatos();
 
-        $("#txtBuscarCandidato").on("keyup", function(){
-            var value = $(this).val().toLowerCase();
-            $("#tblCandidato tr").filter(function(){
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        $("#txtBuscarCandidato").keyup(function(e){
+            let valor = $(this).val(),
+                $tblCandidatos = $("#tblCandidato tbody tr");
+            $tblCandidatos.show();
+            let $fila = $tblCandidatos.filter(function(index){
+                return $(this).find("td:not(:last)").text().toLowerCase().indexOf(valor.toLowerCase())==-1;
             });
+            $fila.hide();
         });
     });
 </script>
